@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.contenedor {
+    position: relative;
+}
+
+.pelota {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    /* Ajusta la posición vertical según sea necesario */
+}
+
+.roja {
+    background-color: #dc3545;
+    right: 20px;
+}
+
+.verde {
+    background-color: #ffc107;
+    right: 45px;
+}
+
+.azul {
+    background-color: #04AA6D;
+    right: 70px;
+}
