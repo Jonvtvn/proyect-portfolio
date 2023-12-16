@@ -1,0 +1,198 @@
+// 'use client'
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import ReactPlayer from 'react-player'
+// import VideoPlayer from '../components/VideoPlayer';
+
+// const YourPage = () => {
+//     const [pageData, setPageData] = useState(null);
+//     const [liveVideos, setLiveVideos] = useState([]);
+//     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+//     const [urlEnVIVO, setUrlEnVIVO] = useState('');
+
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             try {
+//                 const response = await axios.get('https://graph.facebook.com/v18.0/186995941162793', {
+//                     params: {
+//                         fields: 'live_videos',
+//                         access_token: 'EAAMiYZA6A930BOwJv7U2P7TEWs98ZAYZCi7tc8VP62CZAAEgh2nV3k4sOHrI1VB9R1UdmlZCATfe5iccRZCufU9S0TzshkzVKhXlXMwqZBkG7q5GaW3cciM4UAJuVhVmVa6DPq6FxpKMofiZC1hdnZCfmKBdHdZCoNJ7KTdlxJswMFl6ICmk04OottLb7t',
+//                     },
+//                 });
+
+//                 setPageData(response.data);
+
+//                 if (response.data.live_videos?.data?.length > 0) {
+//                     setLiveVideos(response.data.live_videos.data);
+//                     // Almacenar la URL del primer video en la variable urlEnVIVO
+//                     const url = extractVideoUrl(response.data.live_videos.data[0]?.embed_html);
+//                     setUrlEnVIVO(url);
+//                     console.log('URL del primer video en vivo:', url);
+//                 }
+//             } catch (error) {
+//                 console.error('Error al realizar la solicitud:', error);
+//             }
+//         };
+
+//         fetchData();
+//     }, []);
+
+//     const extractVideoUrl = (embedHtml: any) => {
+//         // Modificar la función para extraer la URL del video de la etiqueta iframe
+//         const match = embedHtml.match(/src=["'](https:\/\/www\.facebook\.com\/plugins\/video\.php[^"']+)["']/);
+//         return match ? match[1] : null;
+//     };
+
+//     const handleVideoPlay = () => {
+//         setIsVideoPlaying(true);
+//     };
+//     const videoUrl = 'https://www.youtube.com/watch?v=Xcn_2Z9cBRs&t=588s';
+//     return (
+//         <div>
+
+//             <source src={videoUrl} type="video/mp4" />
+//             <source src={videoUrl} type="video/webm" />
+//             <source src={videoUrl} type="video/ogg" />
+//             Tu navegador no soporta el tag de video.
+
+//             <VideoPlayer videoUrl={videoUrl} />
+
+
+
+//             <div className='relative border shadow-2xl shadow-black rounded-md overflow-hidden w-[900px] h-[500px] drop-shadow-sm group'>
+//                 <video src='https://www.youtube.com/watch?v=Xcn_2Z9cBRs&t=588s' className='w-full h-full object-cover' controls></video>
+//             </div>
+
+
+//             {urlEnVIVO && (
+//                 <ReactPlayer
+//                     url={urlEnVIVO}
+//                     config={{
+//                         facebook: {
+//                             appId: '467274635020288'
+//                         }
+//                     }}
+//                     onError={(error) => console.error('Error al reproducir el video en vivo:', error)}
+//                     width="100%"
+//                     height="auto"
+//                     playing={isVideoPlaying}
+//                     onPlay={handleVideoPlay}
+//                 />
+//             )}
+//             {pageData && (
+//                 <div>
+//                     <p>ID de la página: {pageData.id}</p>
+//                     {liveVideos.length > 0 && (
+//                         <div>
+//                             <h2>Videos en vivo:</h2>
+//                             {liveVideos.map((liveVideo, index) => (
+//                                 <div key={index}>
+//                                     <p>Status: {liveVideo.status}</p>
+//                                     <p>ID del video: {liveVideo.id}</p>
+//                                     {/* Obtener la URL del video desde embed_html */}
+//                                     <p>URL del video: {extractVideoUrl(liveVideo.embed_html)}</p>
+//                                     {/* Mostrar el video usando el elemento iframe */}
+//                                     {extractVideoUrl(liveVideo.embed_html) && (
+//                                         <iframe
+//                                             title={`Video en vivo ${index}`}
+//                                             src={extractVideoUrl(liveVideo.embed_html)}
+//                                             width="100%"
+//                                             height="auto"
+//                                             frameBorder="0"
+//                                             allowFullScreen
+//                                         />
+//                                     )}
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     )}
+
+//                     {/* Usar la variable urlEnVIVO donde sea necesario */}
+//                     <div>
+//                         <h2>UrlEnVIVO:</h2>
+//                         <p>{urlEnVIVO}</p>
+//                     </div>
+//                 </div>
+//             )}
+//         </div>
+//     );
+// };
+
+// export default YourPage;
+
+
+
+
+
+// __html:
+//EAAO6h9aZCtqQBOz9ZA0O12G4tuyBhI87yd3cVr4ZCfQ7Gut6ltai4LJD18G2NIxfBDCHnnVNZBv2wtcvEIJjFEWVOyQD4Xen4C2bxLhFZB7y2MJ8pp0UaTSoLCv0DfS3g9IVa2D53VTjW4sppKSdhRYme6bazTLQEezZA2an5ITeJyIZA8gLGjw2t5VbHlZBfZAk72sHKQZBfS3cl5niLkIlAt9tPlHdCwZBnRhWCAOjJFKR3AnoMZCGpcODbOfZA3uU4qAZDZD
+
+
+// 'use client'
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+
+// const YourPage = () => {
+//     const [pageData, setPageData] = useState(null);
+//     const [liveVideos, setLiveVideos] = useState([]);
+
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             try {
+//                 const response = await axios.get('https://graph.facebook.com/v18.0/186995941162793', {
+//                     params: {
+//                         fields: 'live_videos',
+//                         access_token: 'EAAMiYZA6A930BO0k2hD6HeyMYzi2HZAr9JCYLGWYNEIf1z5ZAMY9zZBrTM1MxyMXawlVcMn1Eg8k6UZC0vjKbCdUZCCZAjpJa2lZC9T3rw1IuBIx5UOO5JLHWp84PFPlOW1hSezxJZBtRWHVsJPTv75Gb8z55nQx9enwqafmaFf37HlETZCrMFkp9iRegFDRlfRUBVuIK91pv2TIcq7TpCvSKpWBDPZAvsZD',
+//                     },
+//                 });
+
+//                 setPageData(response.data);
+
+//                 if (response.data.live_videos?.data?.length > 0) {
+//                     setLiveVideos(response.data.live_videos.data);
+
+//                     // Imprimir la respuesta completa en la consola
+//                     console.log('Respuesta completa:', response.data);
+
+//                     // Puedes ajustar tu lógica aquí según la estructura real de la respuesta
+//                 }
+//             } catch (error) {
+//                 console.error('Error al realizar la solicitud:', error);
+//             }
+//         };
+
+//         fetchData();
+//     }, []);
+
+//     const extractVideoUrl = (embedHtml) => {
+//         // Utilizamos una expresión regular para extraer la URL del atributo src del iframe
+//         const match = embedHtml.match(/src=["'](https:\/\/www\.facebook\.com\/[^"']+)["']/);
+//         return match ? match[1] : null;
+//     };
+
+//     return (
+//         <div>
+//             {pageData && (
+//                 <div>
+//                     <p>ID de la página: {pageData.id}</p>
+
+//                     {liveVideos.length > 0 && (
+//                         <div>
+//                             <h2>Videos en vivo:</h2>
+//                             {liveVideos.map((liveVideo, index) => (
+//                                 <div key={index}>
+//                                     <p>Status: {liveVideo.status}</p>
+//                                     <p>ID del video: {liveVideo.id}</p>
+//                                     {/* Obtener la URL del video desde embed_html */}
+//                                     <p>URL del video: {extractVideoUrl(liveVideo.embed_html)}</p>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     )}
+//                 </div>
+//             )}
+//         </div>
+//     );
+// };
+
+// export default YourPage;
