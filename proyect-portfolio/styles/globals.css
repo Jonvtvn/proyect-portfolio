@@ -29,3 +29,67 @@
     background-color: #04AA6D;
     right: 70px;
 }
+
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(-2px);
+    }
+}
+
+/* Define la animación de escala al hacer hover */
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Aplica la animación de vibración por defecto con un retraso aleatorio */
+.html,
+.css,
+.tailwind,
+.javascript,
+.typescript,
+.java,
+.python,
+.angular,
+.django,
+.nextjs,
+.react,
+.figma,
+.adobeilustrator {
+    animation: vibrate 0.5s infinite alternate;
+    animation-delay: calc(0.1s * var(--delay));
+    /* Ajusta el retraso según el elemento */
+}
+
+/* Detiene la vibración y aplica la animación de escala al hacer hover */
+.html:hover,
+.css:hover,
+.tailwind:hover,
+.javascript:hover,
+.typescript:hover,
+.java:hover,
+.python:hover,
+.angular:hover,
+.django:hover,
+.nextjs:hover,
+.react:hover,
+.figma:hover,
+.adobeilustrator:hover {
+    animation: none;
+    /* Detiene la animación de vibración */
+    /* Aplica la animación de escala al hacer hover con una función de temporización suave */
+}
