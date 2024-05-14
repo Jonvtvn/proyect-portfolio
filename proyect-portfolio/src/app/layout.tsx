@@ -17,6 +17,8 @@ export default function RootLayout({
 
     <html lang="en">
       <head>
+        <title>Jonatan Pizarro</title>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Jonvtvn/Jonvtvn.github.io/main/logo/Logo-jp-sin-fondo.png" />
       </head>
       <body className={inter.className}>
         {children}
