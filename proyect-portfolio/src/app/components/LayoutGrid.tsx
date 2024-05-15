@@ -37,6 +37,7 @@ const SkeletonTwo = () => {
         </div>
     );
 };
+
 const SkeletonThree = () => {
     return (
         <div className="flex flex-col gap-3 my-10">
@@ -49,6 +50,7 @@ const SkeletonThree = () => {
         </div>
     );
 };
+
 const SkeletonFour = () => {
     return (
         <div className="flex flex-col gap-3 my-10">
@@ -61,6 +63,7 @@ const SkeletonFour = () => {
         </div>
     );
 };
+
 const SkeletonFive = () => {
     return (
         <div className="flex flex-col gap-3 my-10">

@@ -9,7 +9,7 @@ import { LayoutGridDemo } from './components/LayoutGrid';
 import { TabsDemo } from './components/Tabs';
 
 export default function HomeContent() {
-  const PDF_FILE = 'http://localhost:3000/Curriculum Vitae Jonatan Pizarro.pdf';
+  const PDF_FILE = 'Curriculum Vitae Jonatan Pizarro.pdf';
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function HomeContent() {
               </div>
               <div className='mx-6 my-2 mt-5 inline-flex gap-2'>
                 <button className=' hover:text-red-600 text-white transition-all'>
-                  <Link target="_blank" href={PDF_FILE} download="Curriculum Vitae de JONATAN PIZARRO.pdf"><CgClipboard className='mr-1 h-7 w-7' /></Link>
+                  <Link target="_blank" href={`https://proyect-portfolio-iota.vercel.app/${PDF_FILE}`} download="Curriculum Vitae de JONATAN PIZARRO.pdf"><CgClipboard className='mr-1 h-7 w-7' /></Link>
                 </button>
                 <button className=' hover:text-black text-white transition-all'>
                   <Link target="_blank" href={`https://github.com/Jonvtvn`} ><FaGithubAlt className='mr-1 h-7 w-7' /></Link>
